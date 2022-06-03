@@ -1,0 +1,22 @@
+{
+  "name": "express-task-manager",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1496-rajeev/node-express-task-manager.git"
+  },
+  "author": "rajeev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1496-rajeev/node-express-task-manager/issues"
+  },
+  "homepage": "https://github.com/1496-rajeev/node-express-task-manager#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
