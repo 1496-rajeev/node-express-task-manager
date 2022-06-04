@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json());
 
 //routes
-app.use('/v1/tasks', tasks);
+app.use('/api/tasks', tasks);
 
 //port
 const PORT = 5000;
