@@ -1,6 +1,7 @@
 import { connectDB } from './db/connect.js';
 import express from 'express';
 import { router as tasks } from './routes/tasks.js';
+import 'dotenv/config';
 
 const app = express();
 
@@ -17,7 +18,7 @@ const PORT = 5000;
 const start = async () => {
   try {
     //connect db
-    await connectDB();
+    await connectDB(process.env.MONGO_URI);
 
     // listen server
     app.listen(PORT, () => {
