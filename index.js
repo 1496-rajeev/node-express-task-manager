@@ -1,11 +1,13 @@
 import express from 'express';
+import { router as tasks } from './routes/tasks.js';
 
 const app = express();
 
+//middleware
+app.use(express.json());
+
 //routes
-app.get('/', (req, res) => {
-  res.send('hello test');
-});
+app.use('/v1/tasks', tasks);
 
 //port
 const PORT = 5000;
