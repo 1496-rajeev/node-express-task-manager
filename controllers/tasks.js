@@ -1,5 +1,6 @@
 import { Task } from '../models/task.js';
 
+//get all task
 const getAllTasks = async (req, res) => {
   try {
     const task = await Task.find({});
@@ -9,10 +10,20 @@ const getAllTasks = async (req, res) => {
   }
 };
 
-const getTask = (req, res) => {
-  res.json({ id: req.params.id });
+//get single task
+const getTask = async (req, res) => {
+  try {
+    const task = await Task.findOne({ _id: req.params.id });
+    if (!task) {
+      return res.status(404).json({ msg: `No task with id ${req.params.id}` });
+    }
+    res.status(200).json(task);
+  } catch (error) {
+    res.status(500).json({ msg: error });
+  }
 };
 
+//create task
 const createTask = async (req, res) => {
   try {
     const task = await Task.create(req.body);
@@ -22,10 +33,12 @@ const createTask = async (req, res) => {
   }
 };
 
+//update task
 const updateTask = (req, res) => {
   res.send('update task');
 };
 
+//delete task
 const deleteTask = (req, res) => {
   res.send('delete task');
 };
