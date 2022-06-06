@@ -1,5 +1,5 @@
 import { Task } from '../models/task.js';
-
+import { Service } from '../service/tasks.js';
 //get all task
 const getAllTasks = async (req, res) => {
   try {
@@ -39,8 +39,11 @@ const updateTask = (req, res) => {
 };
 
 //delete task
-const deleteTask = (req, res) => {
-  res.send('delete task');
+const deleteTask = async (req, res) => {
+  try {
+    const task = await Task.findOneAndDelete({ _id: req.params.id });
+    // res.send('delete task');
+  } catch (error) {}
 };
 
 export { getAllTasks, getTask, createTask, updateTask, deleteTask };
